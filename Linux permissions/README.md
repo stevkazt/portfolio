@@ -36,9 +36,9 @@ From the previous section command output, I picked the hidden file `.project_x.t
    
 8. `-` This character tells `other` permission to read the file, the two possible options are `r` allowing `other` to read or `-` not allowing others to read.
    
-9. `-` This character tells `other` permissions to write the file, the two possible options are `w` allowing `other` to write or `-` not allowing other to write.
+9. `-` This character tells `other` permissions to write the file, the two possible options are `w` allowing `other` to write or `-` not allowing others to write.
 
-10. `-` This character tells `other` permissions to execute the file in case it can be executed, the two possible options are `x` allowing `other` to execute or `-` not allowing other to execute.
+10. `-` This character tells `other` permissions to execute the file in case it can be executed, the two possible options are `x` allowing `other` to execute or `-` not allowing others to execute.
 
 > NOTE: `other` refer to other users that have access to the system but are not the `user` and are not included in the `user` group. 
 
@@ -53,13 +53,17 @@ The first argument will be the new permissions to be set or modified, in this ca
 
 The second argument will be the file we are modifying, ending up with the command `chmod o-w project_k.txt`. 
 
+![output](https://i.imgur.com/82CwbYW.png)
+
 ## Changing file permissions on a hidden file
 
 ![](https://i.imgur.com/E2Nd2f3.png)
 
 Previously we used the hidden file in the `~/projects` folder, this file was hidden because it needed to be archived, as it is an archived file it shouldn't have write permission, only read permission for `user` and `group`. We need to change this as right now it has write permission for both `user` and `group` and is missing read permission for `group`.
 
-To do this we will use `chmod` command as done in the previous section, again two arguments will be used: `chmod u=r,g=r .project_x.txt`.
+To do this we will use `chmod` command as done in the previous section, again two arguments will be used: `chmod u=r,g=r .project_x.txt`, giving us this output:
+
+![output](https://i.imgur.com/q02T1zy.png)
 
 This time the first argument is split into two parts separated by a comma, this is because we need to set more than a different permission at once, here I used the `=` operator to set all permissions I wanted with a single instruction, in this case only read permission was needed for both `user` and `group`, that is why only `r` was specified after `=`. 
 
@@ -74,6 +78,8 @@ The `drafts` folder should only be accessible to the researcher who owns it as i
 In the case of folders we find that execute permission is used, this is because executing means opening such a directory, in this case, the group has permission to open it, and we are going to remove that permission.
 
 As we have been doing before with files, the command remains the same, `chmod` with two arguments, This time we are going to remove `x` permission to the `group`, we would have this command: `chmod g-x drafts`.
+
+![output](https://i.imgur.com/ni0P5gW.png)
 
 ### Summary
 
