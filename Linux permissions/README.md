@@ -1,8 +1,8 @@
 # File permissions in Linux
 
-### Project description
+## Project description
 [Describe what you accomplish through Linux commands.]
-### Checking file and directory details
+## Checking file and directory details
 In order to check the permissions of a file or directory in linux we must first list them using the `ls` command and also use the argument `l`, this argument will list the contents of the actual directory with their respective permissions. Finally to also list hidden files we append the argument `a`. We will end up typing the next command: 
 `ls -la`
 
@@ -10,7 +10,7 @@ Here we have the output of such command on the directory `~/projects`
 
 ![code output](https://i.imgur.com/3TjmtOd.png)
 
-### Permissions string description
+## Permissions string description
 
 From previous section command output I picked the hidden file `.project_x.txt` to explain its 10-character string describing its permissions:
 
@@ -39,7 +39,7 @@ From previous section command output I picked the hidden file `.project_x.txt` t
 > NOTE: `other` refer to other users that have access to the system but are not the `user` and are not included in the `user` group. 
 
 
-### Changing file permissions
+## Changing file permissions
 
 The organization doesn't allow `other` to have write permissions to any file in the system, we can see when we checked file permissions on the `~/projects` directory that the file `project_k.txt` is not complying with this policy. We need to change this permission, in order to do it we use the command `chmod` that will need two arguments.
 
@@ -47,7 +47,7 @@ First argument will be the new permissions to be set or modified, in this case w
 
 The second argument will be the file we are modifying, ending up with the command `chmod o-w project_k.txt`. 
 
-### Changing file permissions on a hidden file
+## Changing file permissions on a hidden file
 
 
 
