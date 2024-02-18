@@ -79,7 +79,7 @@ As we have been doing before with files, the command remains the same, `chmod` w
 
 I have made changes to files and directories inside `~/projects` folder, including adding missing permissions, removing wrong permissions, also handling this permission to hidden files and directories. 
 
-I have explained all these changes and the most used commands to do this, these being `chmod` to change these permissions and `ls`` to list files and folders to keep checking my changes.
+I have explained all these changes and the most used commands to do this, these being `chmod` to change these permissions and `ls` to list files and folders to keep checking my changes.
 
 These commands come together with arguments needed to achieve our objectives when managing permission or moving through Linux. 
 
