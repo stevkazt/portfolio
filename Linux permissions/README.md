@@ -49,9 +49,17 @@ The second argument will be the file we are modifying, ending up with the comman
 
 ## Changing file permissions on a hidden file
 
+Previously we used the hidden file in the `~/projects` folder, this file was hidden because it needed to be archived, as it is an archived file it shouldn't have write permission, only read permission for `user` and `group`. We need to change this as right now it has write permission for both `user` and `group` and is missing read permission for `group`.
 
+In order to do this we will use `chmod` command as done in previous section, again two arguments will be used: `chmod u=r,g=r .project_x.txt`.
+
+This time the first argument is split in two parts separated by a comma, this is because we need to set more than a different permission at once, here I used the `=` operator to set all permissions I wanted with a single instruction, in this case only read permission was needed for both `user` and `group`, that is why only `r` was specified after `=`. 
+
+In this case we are handling a hidden file, the second argument of the command specifies the file we need to modify and in this case we must add a dot before the name of the file to make sure we refer to the hidden file, the name of the file should look as `.project_x.txt`.
 
 ### Changing directory permissions
+
 [Add content here.]
+
 ### Summary
 [Add content here.]
