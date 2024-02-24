@@ -4,6 +4,8 @@
 
 This activity provided by Google in its cybersecurity course lets me showcase my knowledge of SQL, through the activity I am handling some security tasks inside a company using SQL.
 
+***NOTE: The output of commands is shown by screenshots and some of these are cropped to keep the appearance of the page.***
+
 ## Retrieve after hours failed login attempts
 
 To get the login attempts that occurred after 6 pm, the time when working hours finish for this company, I will use a query that gets all the columns in the login attempts table by using `SELECT *` with a filter, this filter will get those login attempts that have a login time greater than 18:00, it can be done enabling filtering by using the word `WHERE` and using the specific filter greater than `>`. The issue also requires filtering those login attempts that failed, I will be appending an extra filter using the `AND` operator, and that code will read as follows:
@@ -12,6 +14,7 @@ To get the login attempts that occurred after 6 pm, the time when working hours 
     FROM log_in_attempts
     WHERE login_time > '18:00' AND SUCCESS = 0;
 
+![](https://i.imgur.com/d7Few1u.png)
 
 ## Retrieve login attempts on specific dates
  
@@ -21,6 +24,7 @@ An incident happened on 2022-05-09, I will be checking all login attempts that o
     FROM log_in_attempts
     WHERE login_date = '2022-05-08' OR login_date = '2022-05-09';
 
+![](https://i.imgur.com/1oNC9sg.png)
 ## Retrieve login attempts outside of Mexico
 
 This time a new incident occurred and it is known it happened outside of Mexico, to include only events outside of Mexico, we must exclude it from our search, I will do it by using the `NOT` operator, also the database saves Mexico with no specific notation, it could be "MEX" or the whole name "MEXICO" and also other options, to make sure we include all options, we can use the `LIKE` operator that will let us some flexibility when searching by looking for similar patterns, in this case, we will look for any country name that starts with "MEX" this will be done by adding `%` after `MEX`, with all this added the code will look like this:
@@ -28,6 +32,8 @@ This time a new incident occurred and it is known it happened outside of Mexico,
     SELECT * 
     FROM log_in_attempts
     WHERE country LIKE "MEX%";
+
+![](https://i.imgur.com/ssx5g3J.png)
 
 ## Retrieve employees in Marketing
 
@@ -37,6 +43,8 @@ We need to retrieve the information of users in the Marketing department to upda
     FROM employees
     WHERE department = "Marketing" AND office LIKE "East%";
 
+![](https://i.imgur.com/4hGgioU.png)
+
 ## Retrieve employees in Finance or Sales
 
 Later we will also need an update for machines in the Sales and the Finance departments, to include both departments in our search we will use the `OR` operator like this: 
@@ -45,6 +53,8 @@ Later we will also need an update for machines in the Sales and the Finance depa
     FROM employees
     WHERE department = "Sales" OR department = "Finance";
 
+![](https://i.imgur.com/gnCnMIj.png)
+
 ## Retrieve all employees not in IT
 
 This time there is a different update that was only made on machines from the IT department and we will exclude it from our search, this will be done with the `NOT` operator as follows:
@@ -52,6 +62,8 @@ This time there is a different update that was only made on machines from the IT
     SELECT * 
     FROM employees
     WHERE NOT department = "IT";
+
+![](https://i.imgur.com/vrE7LtB.png)
 
 ## Summary
 
